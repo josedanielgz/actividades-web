@@ -1,3 +1,7 @@
+body {
+	font-family: calibri,serif;
+}
+
 h1 {
 	color: #ff622e;
 }
@@ -25,10 +29,10 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-	color: #4f84ff;
+	color:#118bfe;
 	margin-top: -0.25vw;
 	padding-bottom: 0.7vw;
-	background: linear-gradient(#ffe96c,#ffb89c);
+	background: linear-gradient(108deg,#41ddff,#0ffeae);
 }
 
 article li{
@@ -63,7 +67,8 @@ aside {
 #experiencia {
 
 	width:50%;
-	border:2px dotted yellow;
+	border:2px dotted rgb(255, 0, 76);
+	border-width: 0.25vw;
 	box-sizing:border-box;
 	float:left;
 }
@@ -76,7 +81,7 @@ section {
 }
 
 footer{
-background:#beacc8;
+background:#55e3ff;
 }
 
 footer p {
@@ -88,6 +93,10 @@ footer p {
 }
 
 @media (min-width: 601px) and (max-width:1000px){
+
+	body {
+		font-family: Arial, Helvetica, sans-serif;
+	}
 
 	aside{
 		width:40%;
