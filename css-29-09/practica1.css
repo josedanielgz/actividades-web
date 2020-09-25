@@ -1,4 +1,106 @@
+h1 {
+	color: #ff622e;
+}
+
+nav {
+	background: cadetblue;
+}
+
 nav ul {
 
+	padding:0;
+}
 
+nav ul li {
+
+	display: inline;
+}
+
+nav ul li a {
+	text-decoration: none;
+	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+	color: #ffffff;
+	padding:0.8vw;
+	float:left;
+}
+
+nav ul li a:hover {
+	color: #4f84ff;
+	margin-top: -0.25vw;
+	padding-bottom: 0.7vw;
+	background: linear-gradient(#ffe96c,#ffb89c);
+}
+
+article li{
+
+	color:#4d8868;
+}
+
+article li strong{
+
+	text-decoration:overline;
+	color:#279aff;
+
+}
+
+aside {
+
+	width:30%;
+	float:left;
+	clear:both;
+	background:#ffe96c;
+
+}
+
+#formacion {
+
+	width:50%;
+	float:left;
+	border:2px solid black;
+	box-sizing:border-box;
+}
+
+#experiencia {
+
+	width:50%;
+	border:2px dotted yellow;
+	box-sizing:border-box;
+	float:left;
+}
+
+section {
+
+	float:right;
+	width:70%;
+	background:#8eff6b;
+}
+
+footer{
+background:#beacc8;
+}
+
+footer p {
+
+	font-weight:bold;
+	text-align: center;
+	padding: 0.75vw;
+	clear: both;
+}
+
+@media (min-width: 601px) and (max-width:1000px){
+
+	aside{
+		width:40%;
+		float: left;
+		clear:both;
+	}
+	
+	section{
+		width:60%;
+		float: left;
+	}
+
+	#formacion, #experiencia {
+		width: 100%;
+	}
 }
