@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Práctica 2: Ejercicio con JQuery y Boostrap</title>
+    <title>Práctica 2</title>
 
     <!--Archivos propios-->
 
@@ -34,12 +34,38 @@
         </div>
 
         <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Sede</a></li>
+          <li class="dropdown"><a href="#">Sede</a></li>  
           <li class="active"><a href="#">Partidos</a></li>
-          <li class="active"><a href="#">Grupos A</a></li>
-          <li class="active"><a href="#">Grupos B</a></li>
-          <li class="active"><a href="#">Grupos C</a></li>
-
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#"
+            > Grupo A<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Rusia</a></li>
+              <li><a href="#">Arabia Saudi</a></li>
+              <li><a href="#">Egipto</a></li>
+              <li><a href="#">Uruguay</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#"
+            > Grupo B<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Portugal</a></li>
+              <li><a href="#">España</a></li>
+              <li><a href="#">Marruecos</a></li>
+              <li><a href="#">Ri de iran</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#"
+            > Grupo C<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Francia</a></li>
+              <li><a href="#">Australia</a></li>
+              <li><a href="#">Peru</a></li>
+              <li><a href="#">Dinamarca</a></li>
+            </ul>
+          </li>
           <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#"
               >Grupos H<span class="caret"></span
