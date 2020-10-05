@@ -6,16 +6,9 @@
 	/*background-color: blue;*/
 /*}*/
 
-.table td, .table th {
-    max-width: 50%;
+#login-failed {
+display: none;
 }
-
-/*#form {*/
-
-	/*border:1px solid black;*/
-	/*box-sizing: border-box;*/
-
-/*}*/
 
 div.navbar-header img{
 	height:8rem;
