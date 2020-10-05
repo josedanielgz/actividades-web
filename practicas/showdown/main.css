@@ -1,0 +1,22 @@
+/*#prueba1 {*/
+	/*background-color: red;*/
+/*}*/
+
+/*#prueba2 {*/
+	/*background-color: blue;*/
+/*}*/
+
+.table td, .table th {
+    max-width: 50%;
+}
+
+/*#form {*/
+
+	/*border:1px solid black;*/
+	/*box-sizing: border-box;*/
+
+/*}*/
+
+div.navbar-header img{
+	height:8rem;
+}
