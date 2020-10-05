@@ -4,32 +4,75 @@
       <table class="table table-hover">
         <thead>
           <tr>
-            <th>Fecha</th>
             <th>Equipo Local</th>
             <th>Equipo Visitante</th>
+            <th>Fecha</th>
           </tr>
         </thead>
-        <tbody id="contenido"></tbody>
+        <tbody id="tabla"></tbody>
       </table>
     </div>
   </div>
 </div>
 <script>
-  var data = "";
-  $.getJSON("partidos.json", function (datos) {
-    $("#contenido").html("");
-    $.each(datos["partidos"], function (idx, partido) {
-      $("#contenido").append(
-        "<tr>" +
-          "<td>" +
-          partido["fecha"] +
-          "</td><td>" +
-          partido["equipo1"] +
-          "<td></td>" +
-          partido.equipo2 +
-          "</td>" +
-          "</tr>"
-      );
+  // Conservo este código en JQuery por si las moscas, pero no me funcionó
+  // https://stackoverflow.com/questions/1607937/how-to-parse-json-array-in-jquery
+
+  //  $.getJSON("secciones/partidos.json", function (datos) {
+  //    $("#contenido").html("");
+  //    $.each(datos["partidos"], function (idx, partido) {
+  //      $("#contenido").append(
+  //        "<tr>" +
+  //          "<td>" +
+  //          partido["fecha"] +
+  //          "</td><td>" +
+  //          partido["equipo1"] +
+  //          "<td></td>" +
+  //          partido["equipo2"] +
+  //          "</td>" +
+  //          "</tr>"
+  //      );
+  //    });
+  //  });
+
+  // Esto funcionó mejor:
+  // https://stackoverflow.com/a/34579496
+
+  function readTextFile(file, callback) {
+    var rawFile = new XMLHttpRequest();
+    rawFile.overrideMimeType("application/json");
+    //Lo mismo que le pasa a contactos.html le pasa a esto, ver pagina2.html
+    rawFile.open("GET", "secciones/partidos.json", true);
+    rawFile.onreadystatechange = function () {
+      if (rawFile.readyState === 4 && rawFile.status == "200") {
+        callback(rawFile.responseText);
+      }
+    };
+    rawFile.send(null);
+  }
+
+  readTextFile("/Users/Documents/workspace/test.json", function (text) {
+    //¿El por qué del .partidos al final? bueno, está en el archivo partidos.json. El "partidos":[ ... ], esa es la razón.
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse
+    var partido = JSON.parse(text).partidos;
+    // Podría venir siendo útil, obtener la lista de atributos de uno de los objetos
+    // https://stackoverflow.com/questions/13912142/getting-property-key-from-json-object
+    var atributos = Object.keys(partido[0]);
+
+    var output = document.getElementById("tabla");
+    // Una cosa curiosa acerca de los forEach anidados, los más internos no parecen estar
+    // al tanto del contexto del item que está iterando su sucesor por sí mismos. Referenciarlos
+    // Lanza un undefined.
+    partido.forEach(function (item) {
+      var row = document.createElement("tr");
+
+      for (i = 0; i < atributos.length; i++) {
+        var cell = document.createElement("td");
+        cell.appendChild(document.createTextNode(item[atributos[i]]));
+        row.appendChild(cell);
+      }
+
+      output.appendChild(row);
     });
   });
 </script>
