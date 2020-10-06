@@ -1,0 +1,27 @@
+{
+    "cartas":[
+
+        {"id":1,
+        "nombre":"As de Diamantes",
+        "cantidad":2
+        },
+        
+        {"id":2,
+        "nombre":"Dos de Diamantes",
+        "cantidad":3
+        },
+        
+        
+        {"id":3,
+        "nombre":"Tres de Diamantes",
+        "cantidad":4
+        },
+        
+        
+        {"id":4,
+        "nombre":"Cuatro de Corazones",
+        "cantidad":6
+        }
+        
+    ]
+}

@@ -6,7 +6,10 @@
       name="viewport"
       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
     />
-    <link rel="stylesheet" href="main.css" media="all" />
+    <link rel="stylesheet" href="main.css" media="all"/>
+    <!--A veces el JSON no se carga como debería, es un error que merece la pena profundizar después
+    https://stackoverflow.com/questions/32414/how-can-i-force-clients-to-refresh-javascript-files-->
+    <script src="js/main.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.5.1.min.js"
       integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
@@ -31,53 +34,6 @@
           </div>
         </div>
       </header>
-      <div id="prueba1" class="col-xs-12 col-sm-6">
-        <!--Referencias: https://www.w3schools.com/bootstrap/bootstrap_images.asp-->
-        <!--https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_img_thumbnail2&stacked=h-->
-
-        <div class="thumbnail col-xs-4 col-sm-3">
-          <a id="card1" href="#"><img src="assets/card.png" alt="" /></a>
-        </div>
-        <div class="thumbnail col-xs-4 col-sm-3">
-          <a id="card1" href="#"><img src="assets/card.png" alt="" /></a>
-        </div>
-        <div class="thumbnail col-xs-4 col-sm-3">
-          <a id="card1" href="#"><img src="assets/card.png" alt="" /></a>
-        </div>
-        <div class="thumbnail col-xs-4 col-sm-3">
-          <a id="card1" href="#"><img src="assets/card.png" alt="" /></a>
-        </div>
-
-        <div class="thumbnail col-xs-4 col-sm-3">
-          <a id="card1" href="#"><img src="assets/card.png" alt="" /></a>
-        </div>
-        <div class="thumbnail col-xs-4 col-sm-3">
-          <a id="card1" href="#"><img src="assets/card.png" alt="" /></a>
-        </div>
-        <div class="thumbnail col-xs-4 col-sm-3">
-          <a id="card1" href="#"><img src="assets/card.png" alt="" /></a>
-        </div>
-        <div class="thumbnail col-xs-4 col-sm-3">
-          <a id="card1" href="#"><img src="assets/card.png" alt="" /></a>
-        </div>
-
-        <div class="thumbnail col-xs-4 col-sm-3">
-          <a id="card1" href="#"><img src="assets/card.png" alt="" /></a>
-        </div>
-        <div class="thumbnail col-xs-4 col-sm-3">
-          <a id="card1" href="#"><img src="assets/card.png" alt="" /></a>
-        </div>
-        <div class="thumbnail col-xs-4 col-sm-3">
-          <a id="card1" href="#"><img src="assets/card.png" alt="" /></a>
-        </div>
-        <div class="thumbnail col-xs-4 col-sm-3">
-          <a id="card1" href="#"><img src="assets/card.png" alt="" /></a>
-        </div>
-
-        <div class="thumbnail col-xs-4 col-sm-3">
-          <a id="card1" href="#"><img src="assets/card.png" alt="" /></a>
-        </div>
-      </div>
 
       <div id="prueba2" class="col-xs-12 col-sm-6">
         <!--Referencia:-->
@@ -110,18 +66,22 @@
                 <label for="">N.o. de cartas: </label>
                 <input
                   class="form-control"
-                  id="#num"
+                  id="num"
                   type="number"
-                  name="N.o."
+                  step="1"
+                  value=""
                 />
               </div>
+              <!--data-id almacena el id que usaremos para actualizar el JSON-->
               <div class="form-group">
                 <label for="text">Carta: </label>
                 <input
                   class="form-control"
-                  id="#card"
+                  id="card"
                   type="text"
-                  name="Carta"
+                  value=""
+                  data-id=""
+                  disabled
                 />
               </div>
 
@@ -129,6 +89,132 @@
             </form>
           </div>
         </div>
+      </div>
+
+      <div id="prueba1" class="col-xs-12 col-sm-6">
+        <!--Referencias: https://www.w3schools.com/bootstrap/bootstrap_images.asp-->
+        <!--https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_img_thumbnail2&stacked=h-->
+
+        <!--Referencias: https://stackoverflow.com/a/6575272-->
+        <!--https://stackoverflow.com/a/9148688-->
+
+        <!--Algo de lo más curioso pasa con este pseudo JSON, leer el archivo main.js-->
+
+        <div class="thumbnail col-xs-4 col-sm-3">
+          <a
+            onclick="getValue(this);"
+            href="#"
+            data-json='{"id":"1","nombre":"As de Diamantes"}'
+            ><img src="assets/card.png" alt=""
+          /></a>
+        </div>
+
+        <div class="thumbnail col-xs-4 col-sm-3">
+          <a
+            onclick="getValue(this);"
+            href="#"
+            data-json='{"id":"2","nombre":"Dos de Diamantes"}'
+            ><img src="assets/card.png" alt=""
+          /></a>
+        </div>
+        <div class="thumbnail col-xs-4 col-sm-3">
+          <a
+            onclick="getValue(this);"
+            href="#"
+            data-json='{"id":"3","nombre":"Tres de Diamantes"}'
+            ><img src="assets/card.png" alt=""
+          /></a>
+        </div>
+
+        <div class="thumbnail col-xs-4 col-sm-3">
+          <a
+            onclick="getValue(this);"
+            href="#"
+            data-json='{"id":"4","nombre":"Cuatro de Corazones"}'
+            ><img src="assets/card.png" alt=""
+          /></a>
+        </div>
+
+        <div class="thumbnail col-xs-4 col-sm-3">
+          <a
+            onclick="getValue(this);"
+            href="#"
+            data-json='{"id":"5","nombre":"As de Diamantes"}'
+            ><img src="assets/card.png" alt=""
+          /></a>
+        </div>
+
+        <div class="thumbnail col-xs-4 col-sm-3">
+          <a
+            onclick="getValue(this);"
+            href="#"
+            data-json='{"id":"6","nombre":"As de Diamantes"}'
+            ><img src="assets/card.png" alt=""
+          /></a>
+        </div>
+
+        <div class="thumbnail col-xs-4 col-sm-3">
+          <a
+            onclick="getValue(this);"
+            href="#"
+            data-json='{"id":"7","nombre":"As de Diamantes"}'
+            ><img src="assets/card.png" alt=""
+          /></a>
+        </div>
+
+        <div class="thumbnail col-xs-4 col-sm-3">
+          <a
+            onclick="getValue(this);"
+            href="#"
+            data-json='{"id":"8","nombre":"As de Diamantes"}'
+            ><img src="assets/card.png" alt=""
+          /></a>
+        </div>
+
+        <div class="thumbnail col-xs-4 col-sm-3">
+          <a
+            onclick="getValue(this);"
+            href="#"
+            data-json='{"id":"9","nombre":"As de Diamantes"}'
+            ><img src="assets/card.png" alt=""
+          /></a>
+        </div>
+
+        <div class="thumbnail col-xs-4 col-sm-3">
+          <a
+            onclick="getValue(this);"
+            href="#"
+            data-json='{"id":"10","nombre":"As de Diamantes"}'
+            ><img src="assets/card.png" alt=""
+          /></a>
+        </div>
+
+        <div class="thumbnail col-xs-4 col-sm-3">
+          <a
+            onclick="getValue(this);"
+            href="#"
+            data-json='{"id":"11","nombre":"As de Diamantes"}'
+            ><img src="assets/card.png" alt=""
+          /></a>
+        </div>
+        <div class="thumbnail col-xs-4 col-sm-3">
+          <a
+            onclick="getValue(this);"
+            href="#"
+            data-json='{"id":"12","nombre":"As de Diamantes"}'
+            ><img src="assets/card.png" alt=""
+          /></a>
+        </div>
+
+        <div class="thumbnail col-xs-4 col-sm-3">
+          <a
+            onclick="getValue(this);"
+            href="#"
+            data-json='{"id":"13","nombre":"As de Diamantes"}'
+            ><img src="assets/card.png" alt=""
+          /></a>
+        </div>
+
       </div>
     </div>
   </body>
